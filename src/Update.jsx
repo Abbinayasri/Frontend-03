@@ -12,7 +12,7 @@ const Update = () => {
   // Fetch existing user data when component mounts
   useEffect(() => {
     axios
-      .put(`http://localhost:3000/api/user/update${id}`)
+      .put(`https://backend-03.onrender.com/api/user/update${id}`)
       .then((res) => {
         setName(res.data.name);
         setEmail(res.data.email);
@@ -26,7 +26,7 @@ const Update = () => {
   const update = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:3000/api/user/update/${id}`, { name, email, address })
+      .put(`https://backend-03.onrender.com/api/user/update/${id}`, { name, email, address })
       .then((result) => {
         alert("User updated successfully");
         console.log(result.data);
