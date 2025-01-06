@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slam Book</title>
+  <style>
+    /* Form container styling */
+    .form-container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fdf6e3; /* Soft beige background */
+      border: 2px solid #f4a261; /* Warm border */
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Soft shadow */
+      font-family: 'Arial', sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      color: black; /* Calm green */
+      margin-bottom: 20px;
+      font-family: 'Georgia', serif;
+    }
+
+    /* Input field styling */
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container select,
+    .form-container textarea {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    /* Button styling */
+    .form-container button {
+      display: block;
+      background-color: #e76f51; /* Vibrant orange */
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      margin: 20px auto;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #d1495b; /* Slightly darker orange */
+    }
+
+    /* Label styling */
+    .form-container label {
+      font-weight: bold;
+      color: #264653; /* Deep teal */
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* Textarea styling */
+    .form-container textarea {
+      resize: vertical;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>My Slam Book</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="nickname">Nickname:</label>
+      <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="favorite-actress">Favorite Actress:</label>
+      <input type="text" id="favorite-actress" name="favorite-actress" placeholder="Enter favorite actress" required>
+
+      <label for="favorite-movie">Favorite Movie:</label>
+      <input type="text" id="favorite-movie" name="favorite-movie" placeholder="Enter favorite movie" required>
+
+      <label for="best-memory">Best Memory:</label>
+      <textarea id="best-memory" name="best-memory" placeholder="Describe your best memory"></textarea>
+
+      <label for="message">Message for Friends:</label>
+      <textarea id="message" name="message" placeholder="Write a special message"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
