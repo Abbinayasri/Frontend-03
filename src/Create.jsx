@@ -1,59 +1,52 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    address: ""
-  });
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-  const handleSubmit = (e) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const navigate = useNavigate();
+
+  const submit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted: ", formData);
-    alert("User created successfully!");
-    setFormData({ name: "", email: "", address: "" }); 
+    axios
+      .post("https://backend-03.onrender.com/api/user/create", { name, email, address })
+      .then((result) => {
+        console.log(result.data);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-return (
+
+  return (
     <div>
-      <h1>Create User</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="address">Address:</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Create User</button>
+      <h1>Create</h1>
+      <form onSubmit={submit}>
+        <label>Enter your name:</label>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label>Enter your email:</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label>Enter your address:</label>
+        <input
+          type="text"
+          placeholder="Enter your address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

@@ -1,65 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Update = () => {
-  // Initialize form data state
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    address: ""
-  });
+  const { id } = useParams();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const navigate = useNavigate();
 
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  // Fetch existing user data when component mounts
+  useEffect(() => {
+    axios
+      .put(`http://localhost:3000/api/user/update${id}`)
+      .then((res) => {
+        setName(res.data.name);
+        setEmail(res.data.email);
+        setAddress(res.data.address);
+      })
+      .catch((err) => {
+        console.log("Failed to fetch user data:", err);
+      });
+  }, [id]);
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const update = (e) => {
     e.preventDefault();
-    console.log("Updated Data: ", formData);
-    alert("User updated successfully!");
-    setFormData({ name: "", email: "", address: "" }); // Clear form after submission
+    axios
+      .put(`http://localhost:3000/api/user/update/${id}`, { name, email, address })
+      .then((result) => {
+        alert("User updated successfully");
+        console.log(result.data);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("Failed to update user:", err);
+      });
   };
 
   return (
     <div>
-      <h1>Update User</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="address">Address:</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Update User</button>
+      <h1>Update</h1>
+      <form onSubmit={updateUser}>
+        <label>Enter your name:</label>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <br />
+        <label>Enter your email:</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        <label>Enter your address:</label>
+        <input
+          type="text"
+          placeholder="Enter your address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        <br />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
