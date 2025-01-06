@@ -5,6 +5,11 @@ body {
   padding: 0;
   background-color: #f8f9fa;
   color: #333;
+  background-image: url('https://i.pinimg.com/736x/1a/86/85/1a8685328e6d4b41849eb7a6466e648a.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-repeat: no-repeat; /* Prevents tiling */
+  background-attachment: fixed; /* Keeps the image fixed during scrolling */
+  background-position: center; /* Centers the image */
 }
 
 /* Styling the container */
@@ -12,7 +17,7 @@ div {
   margin: 20px auto;
   padding: 20px;
   max-width: 800px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for better readability */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   animation: fadeIn 0.8s ease-in-out;
