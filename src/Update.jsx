@@ -12,14 +12,14 @@ const Update = () => {
   // Fetch existing user data when component mounts
   useEffect(() => {
     axios
-      .put(`https://backend-03.onrender.com/api/user/update${id}`)
+      .get(`https://backend-03.onrender.com/api/user/${id}`) // Use GET method and correct endpoint
       .then((res) => {
         setName(res.data.name);
         setEmail(res.data.email);
         setAddress(res.data.address);
       })
       .catch((err) => {
-        console.log("Failed to fetch user data:", err);
+        console.error("Failed to fetch user data:", err);
       });
   }, [id]);
 
@@ -33,14 +33,15 @@ const Update = () => {
         navigate("/");
       })
       .catch((err) => {
-        console.log("Failed to update user:", err);
+        console.error("Failed to update user:", err);
       });
   };
 
   return (
     <div>
       <h1>Update</h1>
-      <form onSubmit={updateUser}>
+      <form onSubmit={update}>
+        {/* Fixed onSubmit function name */}
         <label>Enter your name:</label>
         <input
           type="text"
