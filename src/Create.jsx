@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Create.css";
 
 const Create = () => {
   const [name, setName] = useState("");
@@ -22,32 +23,39 @@ const Create = () => {
   };
 
   return (
-    <div>
-      <h1>Create</h1>
+    <div className="create-container">
+      <h1>Create User</h1>
       <form onSubmit={submit}>
-        <label>Enter your name:</label>
+        <label htmlFor="name">Enter your name:</label>
         <input
           type="text"
+          id="name"
           placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
-        <label>Enter your email:</label>
+        <label htmlFor="email">Enter your email:</label>
         <input
           type="email"
+          id="email"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
-        <label>Enter your address:</label>
+        <label htmlFor="address">Enter your address:</label>
         <input
           type="text"
+          id="address"
           placeholder="Enter your address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
+          required
         />
         <button type="submit">Submit</button>
       </form>
+      <a href="/">Back to User List</a>
     </div>
   );
 };

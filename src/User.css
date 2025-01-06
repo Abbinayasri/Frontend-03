@@ -1,0 +1,130 @@
+/* Styling the entire page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Styling the container */
+div {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  animation: fadeIn 0.8s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for container */
+div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: teal;
+  color: #fff;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+/* Row hover effect */
+tr:hover {
+  background-color: #e6f7ff;
+  transition: background-color 0.3s ease;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Slide-down animation for table header */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Button styling */
+button {
+  background-color: gray;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: darkcyan;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: teal;
+  transform: scale(1);
+}
+
+/* Button bounce animation */
+button:focus {
+  animation: bounce 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+  color: teal;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: darkcyan;
+  transform: scale(1.05);
+}

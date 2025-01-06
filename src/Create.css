@@ -1,0 +1,89 @@
+/* Create Page Styling */
+
+/* Styling the container */
+.create-container {
+  margin: 20px auto;
+  padding: 30px;
+  max-width: 600px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+/* Page heading */
+.create-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: teal;
+  text-align: center;
+  border-bottom: 2px solid teal;
+  padding-bottom: 10px;
+}
+
+/* Form labels */
+.create-container label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Input fields */
+.create-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Input focus effect */
+.create-container input:focus {
+  border-color: teal;
+  outline: none;
+  box-shadow: 0 0 5px teal(0, 123, 255, 0.5);
+}
+
+/* Submit button */
+.create-container button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: teal;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Submit button hover effect */
+.create-container button:hover {
+  background-color: gray;
+  transform: translateY(-2px);
+}
+
+/* Submit button active effect */
+.create-container button:active {
+  background-color: teal;
+  transform: translateY(0);
+}
+
+/* Link styling for navigation back */
+.create-container a {
+  display: inline-block;
+  margin-top: 15px;
+  color: teal;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+}
+
+.create-container a:hover {
+  text-decoration: underline;
+}
